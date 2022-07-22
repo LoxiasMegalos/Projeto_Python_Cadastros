@@ -2,15 +2,6 @@ from dataclasses import replace
 from pycep_correios import get_address_from_cep, WebService
 import re, requests, json, xlsxwriter, PySimpleGUI as sg
 
-#cep = '09230-59'
-#padrao_cep = "[0-9]{5}(.)?( )?(-)?[0-9]{3}"
-#verifica_cep = re.search(padrao_cep, cep)
-
-#print(verifica_cep)
-#endereco = get_address_from_cep(cep, webservice=WebService.APICEP)
-
-#print(endereco['bairro'])
-
 #Limpa_CEP
 def limpa_cep(cep):
     cep_limpo = cep
@@ -23,7 +14,6 @@ def limpa_cep(cep):
             except ValueError:
                 continue
     return cep_limpo
-
 
 #Valida_CEP
 def identifica_cep(cep):
@@ -316,8 +306,6 @@ def tipo_de_cadastro(verificacao_de_empreendimento):
 
         cria_relatorio_divisao(cnpj_consulta, denominacao, cep_consulta, numero ,emp, div, verificacao_de_empreendimento)
 
-    
-    
 #Trata os nomes de empreendimentos     
 def corrige_nome_empreendimento(nome):
     tratando_nome = ""
